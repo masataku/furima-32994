@@ -27,7 +27,7 @@
 | category_id      | integer    | null: false                    |
 | state_id         | integer    | null: false                    |
 | shipping_fee_id  | integer    | null: false                    |
-| ship_from_id     | integer    | null: false                    |
+| prefecture_id    | integer    | null: false                    |
 | shipping_date_id | integer    | null: false                    |
 | user             | references | foreign_key: true, null: false |
 
@@ -51,15 +51,15 @@
 
 ## addresses テーブル
 
-| Column       | Type       | Option                         |
-| ------------ | ---------- | ------------------------------ |
-| postal_code  | string     | null: false                    |
-| prefecture   | string     | null: false                    |
-| city         | string     | null: false                    |
-| address      | string     | null: false                    |
-| building     | string     |                                |
-| phone_number | string     | null: false                    |
-| order        | references | foreign_key: true, null: false | 
+| Column        | Type       | Option                         |
+| ------------- | ---------- | ------------------------------ |
+| postal_code   | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| city          | string     | null: false                    |
+| address       | string     | null: false                    |
+| building      | string     |                                |
+| phone_number  | string     | null: false                    |
+| order         | references | foreign_key: true, null: false | 
 
 ### Association
 - belongs_to :order

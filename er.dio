@@ -1,4 +1,4 @@
-<mxfile host="65bd71144e" modified="2020-12-17T02:54:08.463Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.0 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" version="13.10.0" etag="FSfTfRG36fe5k_Dtjncg" type="embed">
+<mxfile host="65bd71144e" modified="2020-12-17T03:22:42.253Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.0 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" version="13.10.0" etag="2vyTLAHTivz34GdZPLHn" type="embed">
     <diagram id="E6PDl4jcB8tgIN2wtOQ_" name="Page-1">
         <mxGraphModel dx="728" dy="680" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
@@ -19,7 +19,7 @@
                 <mxCell id="11" value="Address" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
                     <mxGeometry x="340" y="520" width="150" height="240" as="geometry"/>
                 </mxCell>
-                <mxCell id="14" value="&#10;postal_code&#10;&#10;prefecture&#10;&#10;city&#10;&#10;address&#10;&#10;building&#10;&#10;phone_number&#10;&#10;order_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="11">
+                <mxCell id="14" value="&#10;postal_code&#10;&#10;prefecture_id&#10;&#10;city&#10;&#10;address&#10;&#10;building&#10;&#10;phone_number&#10;&#10;order_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="11">
                     <mxGeometry y="26" width="150" height="214" as="geometry"/>
                 </mxCell>
                 <mxCell id="16" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmany;exitX=1.008;exitY=0.048;exitDx=0;exitDy=0;entryX=-0.042;entryY=-0.067;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="5" target="9">
