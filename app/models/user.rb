@@ -21,6 +21,6 @@ class User < ApplicationRecord
     end  
     
   end
-  validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: "半角英数字のみで入力して下さい"}  
+  validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/, message: "半角英数字のみで入力して下さい"}  
 
 end
