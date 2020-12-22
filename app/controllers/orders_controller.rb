@@ -11,13 +11,14 @@ class OrdersController < ApplicationController
       @order_address.save
       return redirect_to root_path
     else
+      @item = Item.find(params[:item_id])
       render 'index'  
     end  
   end  
 
   private 
   def order_address_params
-    params.require(:order_address).permit(:token, :postal_code, :phone_number, :prefecture_id, :city, :address, :building)
+    params.require(:order_address).permit(:postal_code, :phone_number, :prefecture_id, :city, :address, :building).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end  
 
   def item_pay
