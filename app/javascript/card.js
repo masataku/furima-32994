@@ -12,7 +12,15 @@ const pay = () => {
     };
     Payjp.createToken(card, (status, response) => {
       if (status == 200) {
-        const token = response.id;  
+        const token = response.id;
+        const tokenTag = `<input name="token" value=${token} type="hidden" >`;
+        formDom.insertAdjacentHTML("beforeend", tokenTag); 
+        document.getElementById("card-number").removeAttribute("name");
+        document.getElementById("card-exp-month").removeAttribute("name"); 
+        document.getElementById("card-exp-year").removeAttribute("name");
+        document.getElementById("card-cvc").removeAttribute("name");
+        
+        formDom.submit();
       }
     });
   });
