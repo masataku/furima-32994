@@ -5,10 +5,10 @@ class OrdersController < ApplicationController
   end  
 
   def create
-    @order = Order.new(order_params)
-    if @order.valid?
+    @order_address = OrderAddress.new(order_address_params)
+    if @order_address.valid?
       item_pay
-      @order.save
+      @order_address.save
       return redirect_to root_path
     else
       render 'index'  
@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   end  
 
   private 
-  def order_params
+  def order_address_params
     params.require(:order_address).permit(:token, :postal_code, :phone_number, :prefecture_id, :city, :address, :building)
   end  
 
@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
     Payjp::Charge.create(
       amount: @item.price,
-      card: order_params[:token],
+      card: order_address_params[:token],
       currency: 'jpy'
     )
   end  
