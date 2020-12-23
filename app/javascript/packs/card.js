@@ -21,6 +21,13 @@ const pay = () => {
         document.getElementById("card-cvc").removeAttribute("name");
         
         formDom.submit();
+      } else {
+        document.getElementById("card-number").removeAttribute("name");
+        document.getElementById("card-exp-month").removeAttribute("name"); 
+        document.getElementById("card-exp-year").removeAttribute("name");
+        document.getElementById("card-cvc").removeAttribute("name");
+        
+        formDom.submit();
       }
     });
   });
