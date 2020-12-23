@@ -10,6 +10,8 @@ class OrderAddress
     validates :city
     validates :address
     validates :phone_number, numericality: {only_integer: true}
+    validates :user_id
+    validates :item_id
   end  
 
   def save 
