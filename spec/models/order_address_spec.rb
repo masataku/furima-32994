@@ -3,7 +3,10 @@ require 'rails_helper'
 RSpec.describe OrderAddress, type: :model do
   describe "商品購入機能" do
     before do
-      @order_address = FactoryBot.build(:order_address)
+      @user = FactoryBot.create(:user)
+      @item = FactoryBot.create(:item)
+      @order_address = FactoryBot.build(:order_address, user_id: @user.id, item_id: @item.id)
+      sleep(1)
     end  
     context "商品の購入がうまくいくとき" do
       it "token,postal_code,prefecture_id,city,address,phone_number,user_id,item_idが空ではない
@@ -13,6 +16,7 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address).to be_valid  
       end  
     end  
+    
     context "商品の購入がうまくいかないとき" do
       it "tokenが空" do
         @order_address.token = nil
