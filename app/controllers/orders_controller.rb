@@ -2,10 +2,10 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :forbit_item_buyer
   before_action :forbit_buyed_item
+  before_action :set_item
 
   def index
     @order_address = OrderAddress.new
-    @item = Item.find(params[:item_id])
   end  
 
   def create
@@ -15,7 +15,6 @@ class OrdersController < ApplicationController
       @order_address.save
       return redirect_to root_path
     else
-      @item = Item.find(params[:item_id])
       render 'index'  
     end  
   end  
@@ -27,9 +26,9 @@ class OrdersController < ApplicationController
 
   def item_pay
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-    @item = Item.find(params[:item_id])
+    item = Item.find(params[:item_id])
     Payjp::Charge.create(
-      amount: @item.price,
+      amount: item.price,
       card: order_address_params[:token],
       currency: 'jpy'
     )
@@ -47,5 +46,9 @@ class OrdersController < ApplicationController
     if item.order
       redirect_to root_path
     end  
+  end  
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end  
 end
