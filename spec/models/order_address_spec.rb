@@ -6,7 +6,7 @@ RSpec.describe OrderAddress, type: :model do
       @order_address = FactoryBot.build(:order_address)
     end  
     context "商品の購入がうまくいくとき" do
-      it "token,postal_code,prefecture_id,city,address,phone_numberが空ではない
+      it "token,postal_code,prefecture_id,city,address,phone_number,user_id,item_idが空ではない
           postal_codeが半角数字３けた-半角数字４けたで入力されている
           prefecture_idは１が選ばれていない
           phone_numberは半角数字のみで入力されている" do
@@ -53,7 +53,12 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.phone_number = "０９０１２３４５６７８"
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Phone number is not a number")
-      end   
+      end
+      it "phone_numberが11けたより大きい" do
+        @order_address.phone_number = "123456789012"
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+      end      
     end  
   end
 end
