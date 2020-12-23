@@ -15,6 +15,11 @@ RSpec.describe OrderAddress, type: :model do
           phone_numberは半角数字のみで入力されている" do
         expect(@order_address).to be_valid  
       end  
+      it "buildingが空でも登録できる" do
+        @order_address.building = nil
+        @order_address.valid?
+        expect(@order_address).to be_valid
+      end  
     end  
     
     context "商品の購入がうまくいかないとき" do
