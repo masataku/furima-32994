@@ -5,6 +5,7 @@ FactoryBot.define do
     prefecture_id {2}
     city          {"青山市青山町"}
     address       {"青山1-2"}
+    building      {"マンション"}
     phone_number  { "09012345678" }
   end
 end
