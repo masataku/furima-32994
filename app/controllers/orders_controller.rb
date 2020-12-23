@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :forbit_item_buyer
+
   def index
     @order_address = OrderAddress.new
     @item = Item.find(params[:item_id])
@@ -29,5 +32,12 @@ class OrdersController < ApplicationController
       card: order_address_params[:token],
       currency: 'jpy'
     )
+  end  
+
+  def forbit_item_buyer
+    item = Item.find(params[:item_id])
+    if item.user.id == current_user.id
+      redirect_to root_path
+    end   
   end  
 end
