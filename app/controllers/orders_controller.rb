@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :forbit_item_buyer
+  before_action :forbit_buyed_item
 
   def index
     @order_address = OrderAddress.new
@@ -39,5 +40,12 @@ class OrdersController < ApplicationController
     if item.user.id == current_user.id
       redirect_to root_path
     end   
+  end  
+
+  def forbit_buyed_item
+    item = Item.find(params[:item_id])
+    if item.order
+      redirect_to root_path
+    end  
   end  
 end
