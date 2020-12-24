@@ -84,9 +84,14 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include("Phone number is not a number")
       end
       it "phone_numberが11けたより大きい" do
-        @order_address.phone_number = "123456789012"
+        @order_address.phone_number = 123456789012
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+      end  
+      it "phone_numberは英数混合では登録できない" do
+        @order_address.phone_number = "12345678abc"
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone number is not a number")
       end  
       it "user_idが空" do
         @order_address.user_id = nil
