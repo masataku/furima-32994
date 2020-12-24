@@ -63,3 +63,30 @@
 
 ### Association
 - belongs_to :order
+
+
+## comments テーブル
+
+| Column | Type       | Option                         |
+| ------ | ---------- | ------------------------------ |
+| text   | text       | null: false                    |
+| user   | references | foreign_key: true, null: false |
+| item   | references | foreign_key: true, null: false |
+
+
+### Association
+- belongs_to :user
+- belongs_to :item
+
+
+## likes テーブル
+
+| Column | Type       | Option                         |
+| ------ | ---------- | ------------------------------ |
+| user   | references | foreign_key: true, null: false |
+| item   | references | foreign_key: true, null: false |
+
+
+### Association
+- belongs_to :user
+- belongs_to :item

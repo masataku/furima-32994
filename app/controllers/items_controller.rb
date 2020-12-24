@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :forbit_correct_user, :forbit_buyed_item]
   before_action :forbit_correct_user, only: [:edit, :update, :destroy] 
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :forbit_buyed_item, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.all.order(created_at: :desc)
@@ -45,10 +46,15 @@ class ItemsController < ApplicationController
   end
 
   def forbit_correct_user
-    item = Item.find(params[:id])
-    if item.user.id != current_user.id
+    if @item.user.id != current_user.id
       redirect_to root_path
     end
+  end  
+
+  def forbit_buyed_item 
+    if @item.order
+      redirect_to root_path
+    end  
   end  
 
   def set_item
