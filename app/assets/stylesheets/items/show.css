@@ -204,3 +204,24 @@
   font-weight: bold;
   font-size: 23px;
 }
+
+/* 追加のコメント機能 */
+.comments {
+  width: 40vw;
+  background-color: #fff;
+  margin: 5vh 0;
+}
+.comments-list {
+  padding: 20px;
+}
+.comments-nickname {
+  margin-bottom: 10px;
+}
+.comments-text-box-red {
+  padding: 20px 5px;
+  background-color: lightpink;
+}
+.comments-text-box-blue {
+  padding: 20px 5px;
+  background-color: lightskyblue;
+}

@@ -78,7 +78,21 @@
     </div>
   </div>
   <%# /商品の概要 %>
-
+  <div class="comments">
+    <% @comments.each do |comment| %>
+      <ul class="comments-list">  
+        <li class="comments-nickname">
+          <%= comment.user.nickname %>
+          <% if comment.user == @item.user %>
+            (出品者)
+          <% end %>  
+        </li>
+        <li class=<%= comment.user == @item.user ? "comments-text-box-red" : "comments-text-box-blue" %>>
+          <%= comment.text %>
+        </li>
+      </ul>
+    <% end %>    
+  </div>
   <div class="comment-box">
     <%= form_with model: [@item, @comment], local: true do |f| %>
       <%# <textarea class="comment-text"></textarea> %>
@@ -95,7 +109,6 @@
       <% end %>  
       <%# </button> %>
     <% end %>
-    
   </div>
   <div class="links">
     <a href="#" class="change-item-btn">

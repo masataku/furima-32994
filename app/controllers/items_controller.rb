@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
 
   def show
     @comment = Comment.new
+    @comments = @item.comments.order(created_at: :desc)
   end  
 
   def new 
