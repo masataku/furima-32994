@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one :order
   has_many :comments
+  has_many :likes
 
   with_options presence: true do
     validates :image

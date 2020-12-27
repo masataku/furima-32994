@@ -1,0 +1,19 @@
+<% if like.new_record? %>
+  <%= link_to [item, like], method: :post, remote: true do %>
+    <div class="favorite-btn">
+      <%# <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+      <i class="far fa-heart like-icon"></i>
+      <span>お気に入り <%= item.likes.count %></span>
+    </div>
+  <% end %>
+<% else %>
+  <%= link_to [item, like], method: :delete, remote: true do %>
+    <div class="favorite-btn">
+      <%# <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+      <i class="fas fa-heart like-icon"></i>
+      <span>お気に入り <%= item.likes.count %></span>
+    </div>
+  <% end %>    
+<% end %> 
+
+

@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :items, except: :index do
     resources :comments, only: [:create, :destroy]
     resources :orders, only: [:index, :create]
+    resources :likes, only: [:create, :destroy]
   end  
 end
