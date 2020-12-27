@@ -66,8 +66,14 @@
         </tr>
       </tbody>
     </table>
-    <div class="like">
-      <%= render partial: "like" %>
+    <div class="option">
+      <div class="like">
+        <%= render partial: "items/like", locals: {item: @item, like: @like} %>
+      </div>
+      <div class="report-btn">
+        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+        <span>不適切な商品の通報</span>
+      </div>
     </div>
   </div>
   <%# /商品の概要 %>

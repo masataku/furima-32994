@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @item.comments.order(created_at: :desc)
+    @like = current_user.likes.find_or_initialize_by(item: @item)
   end  
 
   def new 
